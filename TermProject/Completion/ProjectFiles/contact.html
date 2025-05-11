@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/utils.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <title>Wags &amp; Whiskers | Contact</title>
+</head>
+<body>
+    <!-- Navbar Component -->
+    <nav class="navigation max-width-1 m-auto">
+        <div class="nav-left">
+            <a href="./">
+                <span><img src="../Assets/wags_and_whiskers_logo.png" width="94px" alt=""></span>
+            </a>
+            <ul>
+                <li><a href="./">Home</a></li>
+                <li><a href="./about.html">About us</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./testimonials.html">Testimonials</a></li>
+                <li><a href="./promotions.html">Promotions</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="max-width-1 m-auto">
+        <hr>
+    </div>
+    <div class="contact-content font1 max-width-1 m-auto">
+        <div class="max-width-1 m-auto mx-1">
+            <h2>Feel Free to Contact Us</h2>
+            <form id="contact-form" class="contact-form">
+                <div class="form-box">
+                  <input type="email" id="user_email" placeholder="Enter Your Email" required>
+                </div>
+                <div class="form-box">
+                  <textarea id="message" cols="30" rows="10" placeholder="How may we help you?" required></textarea>
+                </div>
+                <div class="form-box">
+                  <button type="submit" class="btn">Submit</button>
+                </div>
+              </form>
+        </div>
+
+    </div>
+ 
+
+    <!-- Footer Component -->
+    <footer id="site-footer">
+        <nav class="footer-nav">
+          <a href="./index.html">Home</a>
+          <a href="./about.html">About</a>
+          <a href="./services.html">Services</a>
+          <a href="./testimonials.html">Testimonials</a>
+          <a href="./promotions.html">Promotions</a>
+          <a href="./contact.html">Contact</a>
+        </nav>
+        <p>&copy; 2025 Wags & Whiskers. All rights reserved.</p>
+      </footer>
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+    (function() {
+        emailjs.init('EpRhsUnH89FyV_8qG');
+    })();
+      
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+      
+        emailjs.send('service_gfxd6mv', 'template_8fiayem', {
+        name: document.getElementById('user_email').value,
+        message: document.getElementById('message').value
+        })
+        .then(function(response) {
+        alert('Email sent successfully!');
+        }, function(error) {
+        alert('Failed to send email: ' + JSON.stringify(error));
+        });
+    });
+    </script>
+</body>
+</html>
